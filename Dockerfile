@@ -53,6 +53,13 @@ EXPOSE 8090 8091
 # directory due to eg. logs.
 VOLUME ["/var/atlassian/confluence", "/opt/atlassian/confluence/logs"]
 
+USER root
+RUN apt-get update  && \
+    apt-get install -y python-pip
+RUN pip install awscli
+CMD /usr/local/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
+
+USER daemon:daemon
 # Set the default working directory as the Confluence home directory.
 WORKDIR /var/atlassian/confluence
 
