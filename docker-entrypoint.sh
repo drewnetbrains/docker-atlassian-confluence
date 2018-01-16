@@ -26,6 +26,7 @@ if [ -f "${CERTIFICATE}" ]; then
 fi
 
 # Download Atlassian required config files from s3
-/usr/bin/aws s3 cp s3://fathom-atlassian-ecs/${ENVIRONMENT}/confluence/confluence.cfg.xml ${CONF_HOME}
+# /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/${ENVIRONMENT}/confluence/confluence.cfg.xml ${CONF_HOME}
+/usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence
 
 exec "$@"
