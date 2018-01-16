@@ -56,9 +56,9 @@ VOLUME ["/var/atlassian/confluence", "/opt/atlassian/confluence/logs"]
 USER root
 RUN apk add --update \
     python \
-    py-pip 
+    py-pip
 RUN pip install awscli
-CMD /usr/local/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
+CMD /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
 
 USER daemon:daemon
 # Set the default working directory as the Confluence home directory.
