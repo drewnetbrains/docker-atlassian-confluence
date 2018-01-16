@@ -54,8 +54,12 @@ EXPOSE 8090 8091
 VOLUME ["/var/atlassian/confluence", "/opt/atlassian/confluence/logs"]
 
 USER root
-RUN apt-get update  && \
-    apt-get install -y python-pip
+RUN apk --update add python
+RUN echo \
+  # Install and upgrade Pip
+  && easy_install pip \
+  && pip install --upgrade pip \
+  && echo
 RUN pip install awscli
 CMD /usr/local/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
 
