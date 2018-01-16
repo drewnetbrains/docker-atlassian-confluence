@@ -3,7 +3,7 @@ FROM openjdk:8-alpine
 # Setup useful environment variables
 ENV CONF_HOME     /var/atlassian/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
-ENV CONF_VERSION  6.3.4
+ENV CONF_VERSION  6.2.3
 ENV ENVIRONMENT   test
 
 ENV JAVA_CACERTS  $JAVA_HOME/jre/lib/security/cacerts
