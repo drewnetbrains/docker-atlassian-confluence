@@ -25,6 +25,7 @@ if [ -f "${CERTIFICATE}" ]; then
   keytool -noprompt -storepass changeit -keystore ${JAVA_CACERTS} -import -file ${CERTIFICATE} -alias CompanyCA
 fi
 
-/usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
+# Download Atlassian required config files from s3
+/usr/bin/aws s3 cp s3://fathom-atlassian-ecs/${ENVIRONMENT}/confluence/confluence.cfg.xml ${CONF_HOME}
 
 exec "$@"
