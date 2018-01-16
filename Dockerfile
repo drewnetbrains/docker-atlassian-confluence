@@ -68,5 +68,5 @@ COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run Atlassian Confluence as a foreground process by default.
-CMD /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
+# CMD /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
 CMD ["/opt/atlassian/confluence/bin/start-confluence.sh", "-fg"]
