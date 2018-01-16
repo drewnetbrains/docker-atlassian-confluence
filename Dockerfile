@@ -58,7 +58,7 @@ RUN apk add --update \
     python \
     py-pip
 RUN pip install awscli
-CMD /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
+
 
 USER daemon:daemon
 # Set the default working directory as the Confluence home directory.
@@ -68,4 +68,5 @@ COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run Atlassian Confluence as a foreground process by default.
+CMD /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/test/confluence/confluence.cfg.xml /var/atlassian/confluence/
 CMD ["/opt/atlassian/confluence/bin/start-confluence.sh", "-fg"]
