@@ -29,7 +29,6 @@ fi
 /usr/bin/aws s3 cp s3://fathom-atlassian-ecs/${ENVIRONMENT}/confluence/confluence.cfg.xml ${CONF_HOME}
 
 # Pull Atlassian secrets from parameter store
-#!/bin/bash
 
 DATABASE_ENDPOINT=$(aws ssm get-parameters --names "${ENVIRONMENT}.atlassian.rds.db_host" --region us-west-2 --with-decryption --query Parameters[0].Value --output text)
 DATABASE_USER=$(aws ssm get-parameters --names "${ENVIRONMENT}.atlassian.rds.db_user" --region us-west-2 --with-decryption --query Parameters[0].Value --output text)
