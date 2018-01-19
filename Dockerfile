@@ -6,6 +6,7 @@ ENV CONF_INSTALL  /opt/atlassian/confluence
 ENV CONF_VERSION  6.2.3
 # environment variables specific to confluence.cfg.xml config in s3
 ENV ENVIRONMENT   test
+ENV CONF_CONFIG   confluence.cfg.xml
 ENV DATABASE_NAME confluencedb
 
 ENV JAVA_CACERTS  $JAVA_HOME/jre/lib/security/cacerts
